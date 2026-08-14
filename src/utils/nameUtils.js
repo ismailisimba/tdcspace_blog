@@ -1,4 +1,4 @@
-import { prisma } from '../services/prisma.js';
+import User from '../models/User.js';
 
 const birdNames = [
     'bata', 'bundi', 'chiriku', 'chekechea', 'chopoa', 'domokijiko', 'fimbi', 'geuzamawe', 'goregore', 'jogoo',
@@ -13,9 +13,7 @@ export const generateUniqueName = async (baseName) => {
     let attempts = 0;
 
     while (!isUnique) {
-        const existingUser = await prisma.user.findFirst({
-            where: { name: newName },
-        });
+        const existingUser = await User.findOne({ name: newName });
 
         if (!existingUser) {
             isUnique = true;
