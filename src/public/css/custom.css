@@ -1,0 +1,67 @@
+/* src/public/css/custom.css */
+.prose .img-left {
+    float: left;
+    margin-right: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.prose .img-right {
+    float: right;
+    margin-left: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+.prose .img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Clear floats after aligned images to prevent layout issues */
+.prose .img-left + *,
+.prose .img-right + * {
+    clear: both;
+}
+
+.prose code{
+    margin: 12px auto;
+    font-size: 0.69em;
+}
+
+#imagePreviewContainer{
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.editor-statusbar{
+    color:var(--color-gray-900)
+}
+
+.prose p{
+    margin-bottom: 24px;
+    margin-top: 8px;
+}
+
+
+
+
+
+
+.CodeMirror {
+  color: #c9d1d9 !important;
+  background-color: #0d1117 !important;
+  border-color: #30363d !important;
+}
+.editor-toolbar {
+  color: #c9d1d9 !important;
+  background-color: #161b22 !important;
+  border: none !important;
+}
+.cm-s-easymde .CodeMirror-cursor {
+  border-color: #c9d1d9 !important;
+}
+.editor-preview,
+.editor-preview-side {
+  background-color: #0d1117 !important;
+  color: #c9d1d9 !important;
+}

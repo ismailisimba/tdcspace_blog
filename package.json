@@ -1,0 +1,45 @@
+{
+  "name": "artsy-thoughts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "build:css": "tailwindcss -i ./src/public/css/input.css -o ./src/public/css/output.css",
+    "watch:css": "tailwindcss -i ./src/public/css/input.css -o ./src/public/css/output.css --watch",
+    "dev": "concurrently \"npm:watch:css\" \"nodemon src/index.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.0.0",
+    "bcrypt": "^6.0.0",
+    "connect-mongo": "^5.1.0",
+    "dompurify": "^3.3.0",
+    "dotenv": "^17.2.3",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "express-session": "^1.18.2",
+    "jsdom": "^27.2.0",
+    "marked": "^17.0.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.0.0",
+    "multer": "^2.0.2",
+    "nanoid": "^5.1.6",
+    "passport": "^0.7.0",
+    "passport-google-oauth20": "^2.0.0",
+    "passport-local": "^1.0.0",
+    "sharp": "^0.34.5",
+    "slugify": "^1.6.6"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.17",
+    "@tailwindcss/typography": "^0.5.19",
+    "autoprefixer": "^10.4.22",
+    "concurrently": "^9.2.1",
+    "nodemon": "^3.1.11",
+    "postcss": "^8.5.6"
+  }
+}
