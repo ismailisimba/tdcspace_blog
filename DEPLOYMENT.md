@@ -36,7 +36,8 @@ Cloud Run requires your application to listen on the port specified by the `PORT
      --source . \
      --region us-central1 \
      --allow-unauthenticated \
-     --set-env-vars="MONGO_URI=mongodb+srv://...,APPS_SCRIPT_URL=..." 
+     --set-env-vars="APPS_SCRIPT_URL=...,..." \
+     --set-secrets="MONGO_URI=mongodb+srv://..."
    ```
    *(It's recommended to use Google Cloud Secret Manager for sensitive keys).*
 

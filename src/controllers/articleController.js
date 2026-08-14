@@ -124,7 +124,7 @@ export const showArticle = async (req, res) => {
 
     const pageUrl = `${process.env.BASE_URL}/articles/${article.slug}`;
     res.locals.seo = {
-      title: `${article.title} | Mnembo Blog`,
+      title: `${article.title} | Tanzanian Galaxy`,
       description: article.excerpt || truncateText(article.content),
       url: pageUrl,
       image: article.headerImageUrl || `${process.env.BASE_URL}/default-share-image.jpg`,
@@ -170,8 +170,8 @@ export const renderHomepage = async (req, res) => {
     latestArticles.forEach(a => a.author = a.authorId);
 
     res.locals.seo = {
-      title: 'Space Blog',
-      description: 'Welcome to the Space Blog',
+      title: 'Tanzanian Galaxy',
+      description: 'Welcome to Tanzanian Galaxy',
       url: process.env.BASE_URL,
       image: `${process.env.BASE_URL}/default-share-image.jpg`,
       type: 'website'

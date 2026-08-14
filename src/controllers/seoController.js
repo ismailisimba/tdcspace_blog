@@ -42,7 +42,7 @@ export const generateRssFeed = async (req, res) => {
         let xml = `<?xml version="1.0" encoding="UTF-8"?>`;
         xml += `<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">`;
         xml += `<channel>`;
-        xml += `<title>Mnembo Blog</title>`;
+        xml += `<title>Tanzanian Galaxy</title>`;
         xml += `<link>${baseUrl}</link>`;
         xml += `<description>A creative space for artistic ideas and thoughts.</description>`;
         xml += `<language>en-us</language>`;

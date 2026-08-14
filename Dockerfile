@@ -9,11 +9,8 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm ci --only=production
 
-# 4. Copy the Prisma schema to generate the client
-COPY prisma ./prisma/
-RUN npx prisma generate
 
-# 5. Copy the rest of your application source code
+# 4. Copy the rest of your application source code
 COPY . .
 
 # 6. Expose the port the app runs on
