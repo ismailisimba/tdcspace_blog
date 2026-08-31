@@ -12,6 +12,7 @@
     <meta name="description"
         content="<%= locals.seo ? seo.description : 'A creative space for artistic ideas and thoughts.' %>">
     <link rel="canonical" href="<%= locals.seo ? seo.url : 'https://tanzaniangalaxy.com' %>">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="<%= locals.seo ? seo.type : 'website' %>">
@@ -54,6 +55,7 @@
             <div class="hidden md:flex items-center space-x-6">
                 <a href="/articles" class="text-gray-400 hover:text-white transition-colors">All Articles</a>
                 <a href="/leaderboard" class="text-gray-400 hover:text-white transition-colors">Authors</a>
+                <a href="/feed.xml" class="text-gray-400 hover:text-white transition-colors" target="_blank">RSS</a>
 
                 <% if (locals.user) { %>
                     <!-- Logged-in user links -->
@@ -91,6 +93,7 @@
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-white dark:bg-gray-800 shadow-lg">
                 <a href="/articles" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">All Articles</a>
                 <a href="/leaderboard" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">Authors</a>
+                <a href="/feed.xml" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700" target="_blank">RSS</a>
                 <% if (locals.user) { %>
                     <a href="/my-articles" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">My Articles</a>
                     <a href="/profile" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700">Profile</a>

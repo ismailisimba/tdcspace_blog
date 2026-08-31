@@ -31,6 +31,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride('_method')); 
 
 app.use(session({
+  name: '__session',
   store: MongoStore.create({
     mongoUrl: process.env.MONGO_URI,
     collectionName: 'sessions'

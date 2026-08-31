@@ -8,7 +8,7 @@
         <p class="font-bold">Admin/Mod Controls</p>
         <div class="flex items-center space-x-4">
            <!-- Edit Button -->
-           <% if (user.id === article.authorId || user.role === 'ADMIN' || user.role === 'MODERATOR') { %>
+           <% if ((user.id && user.id === article.author._id.toString()) || (user._id && user._id.toString() === article.author._id.toString()) || user.role === 'ADMIN' || user.role === 'MODERATOR') { %>
             <a href="/articles/<%= article.slug %>/edit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md transition-colors text-sm">
               Edit
             </a>
@@ -62,7 +62,7 @@
     </div>
 
     <!-- Edit Button -->
-           <% if (!article.published && (user.id === article.authorId)) { %>
+           <% if (user && !article.published && ((user.id && user.id === article.author._id.toString()) || (user._id && user._id.toString() === article.author._id.toString()))) { %>
             <a href="/articles/<%= article.slug %>/edit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-md transition-colors text-sm">
               Edit
             </a>
