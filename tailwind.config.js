@@ -11,7 +11,7 @@ module.exports = {
         background: '#0a0a0a',
       },
       fontFamily: {
-        sans: ['Jost', 'sans-serif'],
+        sans: ['Hubballi', 'sans-serif'],
       },
       // Custom styles for the typography plugin
       typography: (theme) => ({

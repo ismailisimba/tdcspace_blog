@@ -20,7 +20,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
-app.set('trust proxy', 1);
+app.set('trust proxy', true);
 const PORT = process.env.PORT || 3000;
 
 app.set('view engine', 'ejs');
@@ -68,6 +68,11 @@ app.get('/robots.txt', (req, res) => {
     const content = `User-agent: *\nAllow: /\n\nSitemap: ${process.env.BASE_URL}/sitemap.xml`;
     res.send(content);
 });
+
+// Static pages
+app.get('/about', (req, res) => res.render('pages/about', { user: req.user }));
+app.get('/privacy', (req, res) => res.render('pages/privacy', { user: req.user }));
+app.get('/terms', (req, res) => res.render('pages/terms', { user: req.user }));
 
 app.get('/', renderHomepage);
 
