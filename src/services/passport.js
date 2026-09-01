@@ -24,10 +24,14 @@ passport.use(new LocalStrategy({ usernameField: 'email' },
 ));
 
 // === GOOGLE OAUTH STRATEGY ===
+const googleCallbackUrl = process.env.BASE_URL 
+  ? `${process.env.BASE_URL}/auth/google/callback` 
+  : "/auth/google/callback";
+
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "/auth/google/callback"
+    callbackURL: googleCallbackUrl
   },
   async (accessToken, refreshToken, profile, done) => {
     try {
@@ -35,11 +39,21 @@ passport.use(new GoogleStrategy({
 
       if (user) {
         return done(null, user);
+      } 
+      
+      const email = profile.emails[0].value;
+      let existingUser = await User.findOne({ email });
+
+      if (existingUser) {
+        existingUser.googleId = profile.id;
+        existingUser.emailVerified = true;
+        await existingUser.save();
+        return done(null, existingUser);
       } else {
         const newUser = await User.create({
           googleId: profile.id,
           name: profile.displayName,
-          email: profile.emails[0].value,
+          email: email,
           emailVerified: true,
         });
         return done(null, newUser);
